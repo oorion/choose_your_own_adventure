@@ -1,1 +1,7 @@
+<h1>Choose Your Own Adventure</h1>
 <button><%= link_to "Create New Story", new_story_path %></button>
+
+<h2>Top Stories</h2>
+<% @stories.each do |story| %>
+  <%= link_to story.title, edit_story_path(story.id) %>
+<% end %>
