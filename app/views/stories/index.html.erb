@@ -3,5 +3,5 @@
 
 <h2>Top Stories</h2>
 <% @stories.each do |story| %>
-  <%= link_to story.title, edit_story_path(story.id) %>
+  <%= link_to story.title, edit_story_path(story.id) %><br>
 <% end %>

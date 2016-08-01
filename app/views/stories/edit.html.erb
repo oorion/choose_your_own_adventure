@@ -1,16 +1,18 @@
 <h2><%= @story.title %><br></h2>
 <%= @story.text %><br><br>
 
-Choose option:<br>
-<% @story.stories.each do |child_story| %>
-  <%= link_to child_story.title, edit_story_path(child_story.id) %><br>
-  <%= child_story.text %><br><br>
+<% if @story.stories.present? %>
+  Choose option:<br>
+  <% @story.stories.each do |child_story| %>
+    <%= link_to child_story.title, edit_story_path(child_story.id) %><br>
+  <% end %>
+  <br>
 <% end %>
 
-Add option:<br>
+Add option:<br><br>
 <%= form_for @continuation_story do |f| %>
-  <%= f.text_field :title, placeholder: 'Enter your title here' %>
-  <%= f.text_field :text, placeholder: 'Enter your story here' %>
+  <%= f.text_field :title, placeholder: 'Enter your title here' %><br><br>
+  <%= f.text_area :text, placeholder: 'Enter your story here' %><br>
   <%= f.hidden_field :story_id, value: @story.id %>
   <%= f.submit 'Submit' %>
 <% end %>
