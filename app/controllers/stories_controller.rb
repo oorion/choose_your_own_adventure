@@ -8,8 +8,8 @@ class StoriesController < ApplicationController
   end
 
   def create
-    Story.create(story_params)
-    redirect_to stories_path
+    story = Story.create(story_params)
+    redirect_to edit_story_path(story.id)
   end
 
   def edit
