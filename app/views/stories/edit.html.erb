@@ -1,5 +1,10 @@
 <%= @story.title %><br>
-<%= @story.text %>
+<%= @story.text %><br><br>
+
+<% @story.stories.each do |child_story| %>
+  <%= child_story.title %><br>
+  <%= child_story.text %><br><br>
+<% end %>
 
 <%= form_for @continuation_story do |f| %>
   <%= f.text_field :title, placeholder: 'Enter your title here' %>

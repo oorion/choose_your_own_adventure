@@ -1,6 +1,6 @@
 class StoriesController < ApplicationController
   def index
-    @stories = Story.all
+    @stories = Story.where(story_id: nil)
   end
 
   def new
@@ -8,7 +8,6 @@ class StoriesController < ApplicationController
   end
 
   def create
-    binding.pry
     Story.create(story_params)
     redirect_to stories_path
   end
